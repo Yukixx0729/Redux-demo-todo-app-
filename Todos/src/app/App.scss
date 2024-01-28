@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,100&family=Raleway:ital,wght@0,400;1,700&display=swap");
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+body {
+  background-color: #6d9ea3;
+}
+
+.title {
+  color: #c4d3d3;
+  font-family: "Lato", sans-serif;
+  font-size: 1.5rem;
+  text-shadow: 3px 2px 5px #79785c;
+}
+
+nav {
+  font-family: "Lato", sans-serif;
+  font-size: 2rem;
+  span {
+    color: #c4d3d3;
+  }
+  a {
+    color: #79785c;
+    text-decoration: none;
+
+    font-weight: bold;
+  }
+}
+
+/* to do list */
+.todo-container {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+
+  font-family: "Raleway", sans-serif;
+  li {
+    padding: 0.5rem;
+    font-size: 1rem;
+    margin: 0.5rem;
+  }
+  button {
+    margin-left: 1.5rem;
+  }
+  a {
+    text-decoration: none;
+    color: #79785c;
+    font-weight: bold;
+    background-color: #d3d2cd;
+    padding: 0.5rem;
+    border-radius: 5px;
+  }
+}
+
+/* add to do */
