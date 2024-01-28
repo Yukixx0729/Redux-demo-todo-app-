@@ -19,7 +19,9 @@ export const TodoList = () => {
         <Link to={`/todo/${todo.id}`}>
           <span>{todo.name}</span>{" "}
         </Link>
-        <button>{todo.completed ? "Done" : "Not yet"}</button>
+        {todo.completed ? <span>✅</span> : <button>Done?</button>}
+
+        <button>Delete</button>
       </li>
     );
   });

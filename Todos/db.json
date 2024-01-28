@@ -2,20 +2,26 @@
   "todos": [
     {
       "id": "1",
-      "name": "to do 1",
+      "name": "To do 1",
       "content": "walk tiger",
       "completed": true
     },
     {
       "id": "2",
-      "name": "to do 2",
+      "name": "To do 2",
       "content": "make grilled salmon",
       "completed": false
     },
     {
       "id": "3",
-      "name": "to do 3",
+      "name": "To do 3",
       "content": "feed the dogs",
+      "completed": false
+    },
+    {
+      "id": "CsHlwGp6Js_HQ6S8w7Z6n",
+      "name": "To do 4",
+      "content": "silly ashley",
       "completed": false
     }
   ]

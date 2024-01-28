@@ -9,11 +9,15 @@ export const SingleTodo = () => {
   const todo = useSelector((state) => selectTodoById(state, todoId));
 
   return (
-    <section>
-      <h2>To do Name: {todo.name}</h2>
-      <p>To do Content: {todo.content}</p>
-      <span>completed?</span>
-      <button>{todo.completed ? "Done" : "Not yet!"}</button>
+    <section className="single-container">
+      <h2 className="title">To do Name: {todo.name}</h2>{" "}
+      <div>
+        <p>
+          To do Content: <span>{todo.content}</span>
+        </p>
+        <span>Status:</span>
+        {todo.completed ? <span>✅</span> : <button>Done?</button>}
+      </div>
     </section>
   );
 };
