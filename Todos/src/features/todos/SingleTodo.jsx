@@ -1,12 +1,33 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { selectTodoById, selectAllTodos } from "./todosSlice";
+import { markCompleted, selectAllTodos, fetchTodoById } from "./todosSlice";
+import { useEffect, useState } from "react";
 
 export const SingleTodo = () => {
+  const dispatch = useDispatch();
   const { todoId } = useParams();
-  const todos = useSelector(selectAllTodos);
 
-  const todo = useSelector((state) => selectTodoById(state, todoId));
+  const [todo, setTodo] = useState(null);
+
+  useEffect(() => {
+    dispatch(fetchTodoById(todoId))
+      .then((result) => {
+        setTodo(result.payload);
+      })
+      .catch((error) => {
+        console.error("Failed to fetch todo:", error);
+      });
+  }, [dispatch]);
+
+  const handleOnClick = (todo) => {
+    dispatch(markCompleted(todo)).then((result) => {
+      dispatch(fetchTodoById(result.payload.id)).then((result) => {
+        setTodo(result.payload);
+      });
+    });
+  };
+
+  if (!todo) return <div>...Loading</div>;
 
   return (
     <section className="single-container">
@@ -16,7 +37,11 @@ export const SingleTodo = () => {
           To do Content: <span>{todo.content}</span>
         </p>
         <span>Status:</span>
-        {todo.completed ? <span>✅</span> : <button>Done?</button>}
+        {todo.completed ? (
+          <span>✅</span>
+        ) : (
+          <button onClick={() => handleOnClick(todo)}>Done?</button>
+        )}
       </div>
     </section>
   );

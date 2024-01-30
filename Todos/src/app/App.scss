@@ -52,6 +52,10 @@ button:active {
   transform: scale3d(1px 3px 3px);
 }
 
+button:disabled {
+  color: rgb(195, 191, 191);
+}
+
 /* todos list */
 .todo-container {
   list-style-type: none;

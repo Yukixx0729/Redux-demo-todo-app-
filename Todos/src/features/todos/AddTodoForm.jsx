@@ -12,7 +12,8 @@ export const AddTodoForm = () => {
 
   const canAdd = content && name;
 
-  const handleOnSubmit = async () => {
+  const handleOnSubmit = async (e) => {
+    e.preventDefault();
     if (canAdd) {
       dispatch(addNewTodo({ id: nanoid(), name, content, completed: false }));
       setName("");

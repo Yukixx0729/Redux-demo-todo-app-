@@ -1,15 +1,29 @@
 import { useDispatch, useSelector } from "react-redux";
-import { fetchTodos, selectAllTodos, selectTodoById } from "./todosSlice";
+import {
+  fetchTodos,
+  selectAllTodos,
+  markCompleted,
+  deleteTodo,
+} from "./todosSlice";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AddTodoForm } from "./AddTodoForm";
+
 export const TodoList = () => {
   const todos = useSelector(selectAllTodos);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchTodos());
-  }, []);
+  }, [dispatch]);
+
+  const handleOnClick = (todo) => {
+    dispatch(markCompleted(todo));
+  };
+
+  const handleOnDelete = (todo) => {
+    dispatch(deleteTodo(todo));
+  };
 
   if (todos.length === 0) return <p>No todos</p>;
 
@@ -19,9 +33,13 @@ export const TodoList = () => {
         <Link to={`/todo/${todo.id}`}>
           <span>{todo.name}</span>{" "}
         </Link>
-        {todo.completed ? <span>✅</span> : <button>Done?</button>}
+        {todo.completed ? (
+          <span>✅</span>
+        ) : (
+          <button onClick={() => handleOnClick(todo)}>Done?</button>
+        )}
 
-        <button>Delete</button>
+        <button onClick={() => handleOnDelete(todo)}>Delete</button>
       </li>
     );
   });
