@@ -1,12 +1,13 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { markCompleted, selectAllTodos, fetchTodoById } from "./todosSlice";
+import { markCompleted, fetchTodoById } from "./todosSlice";
 import { useEffect, useState } from "react";
+import EditTodoForm from "./EditTodoForm";
 
 export const SingleTodo = () => {
   const dispatch = useDispatch();
   const { todoId } = useParams();
-
+  const [isEdit, setIsEdit] = useState(false);
   const [todo, setTodo] = useState(null);
 
   useEffect(() => {
@@ -27,22 +28,39 @@ export const SingleTodo = () => {
     });
   };
 
+  const handleOnClickToEdit = () => {
+    return isEdit ? setIsEdit(false) : setIsEdit(true);
+  };
+
   if (!todo) return <div>...Loading</div>;
 
   return (
     <section className="single-container">
-      <h2 className="title">To do Name: {todo.name}</h2>{" "}
       <div>
-        <p>
-          To do Content: <span>{todo.content}</span>
-        </p>
-        <span>Status:</span>
-        {todo.completed ? (
-          <span>✅</span>
-        ) : (
-          <button onClick={() => handleOnClick(todo)}>Done?</button>
-        )}
+        {" "}
+        <button id="editBtn" onClick={handleOnClickToEdit}>
+          {!isEdit ? "Edit Todo" : "View Todo"}
+        </button>
       </div>
+
+      {isEdit ? (
+        <EditTodoForm todo={todo} setIsEdit={setIsEdit} setTodo={setTodo} />
+      ) : (
+        <div>
+          <h2 className="title">To do Name: {todo.name}</h2>{" "}
+          <div>
+            <p>
+              To do Content: <span>{todo.content}</span>
+            </p>
+            <span>Status:</span>
+            {todo.completed ? (
+              <span>✅</span>
+            ) : (
+              <button onClick={() => handleOnClick(todo)}>Done?</button>
+            )}
+          </div>
+        </div>
+      )}
     </section>
   );
 };
