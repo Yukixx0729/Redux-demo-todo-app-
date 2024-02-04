@@ -15,10 +15,10 @@ This Todo application utilizes Redux Toolkit to proficiently manage state within
 - Redux toolkit / React-Redux
 - Json server libary acting as backend
 
-### **Screen recording**
+### **Screenshots**
 
 ---
 
-<video width="400" height="250" controls>
-  <source src="./video/Screen Recording 2024-02-04 at 9.44.41 pm.mov" type="video/mp4">
-</video>
+<img src="./images/1.png" width="1000" />
+<img src="./images/2.png" width="1000" />
+<img src="./images/3.png" width="1000" />
