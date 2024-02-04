@@ -25,7 +25,13 @@ export const TodoList = () => {
     dispatch(deleteTodo(todo));
   };
 
-  if (todos.length === 0) return <p>No todos</p>;
+  if (todos.length === 0)
+    return (
+      <section>
+        <p className="hint">No todos yet.</p>
+        <AddTodoForm />
+      </section>
+    );
 
   const renderTodos = todos.map((todo) => {
     return (
@@ -48,7 +54,7 @@ export const TodoList = () => {
     <section>
       <h2 className="title">To do list</h2>
       <ul className="todo-container">{renderTodos}</ul>
-      <h2 className="title">Add to do </h2>
+
       <AddTodoForm />
     </section>
   );

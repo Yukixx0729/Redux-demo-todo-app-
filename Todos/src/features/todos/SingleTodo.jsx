@@ -47,10 +47,10 @@ export const SingleTodo = () => {
         <EditTodoForm todo={todo} setIsEdit={setIsEdit} setTodo={setTodo} />
       ) : (
         <div>
-          <h2 className="title">To do Name: {todo.name}</h2>{" "}
+          <h2 className="title"> {todo.name}</h2>{" "}
           <div>
             <p>
-              To do Content: <span>{todo.content}</span>
+              Note: <span>{todo.content}</span>
             </p>
             <span>Status:</span>
             {todo.completed ? (

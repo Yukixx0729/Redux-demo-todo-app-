@@ -27,16 +27,23 @@ const EditTodoForm = ({ todo, setIsEdit, setTodo }) => {
   return (
     <form onSubmit={handleOnSubmit}>
       <div>
-        <label>To do name:</label>
-        <input type="text" name="name" onChange={onNameChange} value={name} />
-      </div>
-      <div>
-        <label>To do content:</label>
+        <label>Title :</label>
         <input
           type="text"
+          name="name"
+          onChange={onNameChange}
+          value={name}
+          className="input"
+        />
+      </div>
+      <div>
+        <label>Note :</label>
+        <textarea
+          className="input"
           name="content"
           onChange={onContentChange}
           value={content}
+          rows="4"
         />
       </div>
       <button type="submit">Update</button>

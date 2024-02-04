@@ -22,17 +22,25 @@ export const AddTodoForm = () => {
   };
   return (
     <form onSubmit={handleOnSubmit}>
+      <h2 className="title">Add to do </h2>
       <div>
-        <label>To do name:</label>
-        <input type="text" name="name" onChange={onNameChange} value={name} />
-      </div>
-      <div>
-        <label>To do content:</label>
+        <label>Title :</label>
         <input
           type="text"
+          name="name"
+          onChange={onNameChange}
+          value={name}
+          className="input"
+        />
+      </div>
+      <div>
+        <label>Note :</label>
+        <textarea
           name="content"
           onChange={onContentChange}
           value={content}
+          rows="4"
+          className="input"
         />
       </div>
       <button type="submit" disabled={!canAdd}>

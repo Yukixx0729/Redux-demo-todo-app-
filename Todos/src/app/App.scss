@@ -76,6 +76,13 @@ button:disabled {
   }
 }
 
+.hint {
+  margin: 3rem;
+  font-family: "Roboto", sans-serif;
+  font-size: 2rem;
+  color: rgba(255, 0, 0, 0.312);
+}
+
 /* add todo */
 form {
   font-size: 1.3rem;
@@ -106,4 +113,15 @@ form {
 /* edit single todo form */
 #editBtn {
   margin-top: 2rem;
+}
+
+// for input styles
+
+.input {
+  width: 250px;
+  font-family: "Lato", sans-serif;
+  border-radius: 3%;
+  box-shadow: 1px 3px 3px #c4d3d3;
+  border: #c4d3d3;
+  font-size: 1rem;
 }

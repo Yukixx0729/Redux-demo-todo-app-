@@ -1,15 +1,9 @@
 {
   "todos": [
     {
-      "id": "1",
-      "name": "To do 1",
-      "content": "feed tiger",
-      "completed": true
-    },
-    {
-      "id": "MCxd0vkI8q4grELA8CZAo",
-      "name": "To do 3",
-      "content": "so many things",
+      "id": "0bN6s9mEmNXXBmX88AOu6",
+      "name": "Meet my friend this sat",
+      "content": "@carlton garden , 9:30am ",
       "completed": false
     }
   ]
